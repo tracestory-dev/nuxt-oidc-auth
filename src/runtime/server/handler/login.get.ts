@@ -71,7 +71,7 @@ function loginEventHandler() {
     if (config.responseType.includes('token') || config.nonce) {
       const nonce = generateRandomUrlSafeString()
       await session.update({ nonce })
-      query.response_mode = 'form_post'
+      query.response_mode = 'query'
       query.nonce = nonce
       if (!query.scope?.includes('openid'))
         query.scope = `openid ${query.scope}`
